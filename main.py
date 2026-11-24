@@ -1,9 +1,9 @@
-import os
+"""Write the bounty entry line to /output/entry.txt."""
+from pathlib import Path
 
 LINE = "I didn't break prod, I just gave it a surprise feature called downtime."
 
-os.makedirs("/output", exist_ok=True)
-with open("/output/entry.txt", "w", encoding="utf-8") as f:
-    f.write(LINE)
+Path("/output").mkdir(parents=True, exist_ok=True)
+Path("/output/entry.txt").write_text(LINE, encoding="utf-8")
 
 print(LINE)
